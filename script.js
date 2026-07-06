@@ -1,1 +1,35 @@
-const girlName='Ananya';document.getElementById('girlName').textContent=girlName;const no=document.getElementById('no');const msgs=['NO 🙈','Catch me 😂','Think again 😜','Are you sure? 🥺','Nice try 😝'];let i=0;function move(){const w=window.innerWidth-120,h=window.innerHeight-60;no.style.left=Math.random()*w+'px';no.style.top=Math.random()*h+'px';no.textContent=msgs[(i++)%msgs.length];}move();['mouseover','touchstart','pointerdown','click'].forEach(e=>no.addEventListener(e,f=>{f.preventDefault();move();}));document.getElementById('yes').onclick=()=>{document.getElementById('msg').innerHTML='🎉 Yay! Now let\'s plan our first outing ❤️';alert('🎉 Date Accepted! ❤️');};
+const noBtn=document.getElementById("noBtn");
+
+const yesBtn=document.getElementById("yesBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+const x=Math.random()*(window.innerWidth-150);
+
+const y=Math.random()*(window.innerHeight-100);
+
+noBtn.style.position="absolute";
+
+noBtn.style.left=x+"px";
+
+noBtn.style.top=y+"px";
+
+});
+
+yesBtn.addEventListener("click",()=>{
+
+document.body.innerHTML=`
+
+<div style="height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;background:#ff4d6d;color:white;font-family:Arial;text-align:center;">
+
+<h1>Yayyyyy!! ❤️🥳</h1>
+
+<h2>I can't wait for our date! 😊</h2>
+
+<h1>🍕☕🎬💖</h1>
+
+</div>
+
+`;
+
+});
