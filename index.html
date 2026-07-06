@@ -1,45 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>DateQuest ❤️</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color"
+content="#ff5c8a">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
 
 <body>
 
-<div class="container">
+<!-- Floating Hearts -->
+<div id="hearts"></div>
 
-<p class="madeby">Made with ❤️ by Rajat Srivastava</p>
+<!-- Background Blur -->
+<div class="blur one"></div>
+<div class="blur two"></div>
 
-<h1>Hey Ananya 😊</h1>
+<!-- Main Card -->
+<div class="glass">
 
-<p class="question">
-Would you like to spend some time with me?
-</p>
+<!-- Creator -->
 
-<div class="options">
+<div class="creator">
 
-<p>🍕 Lunch</p>
-<p>☕ Coffee</p>
-<p>🍽 Dinner</p>
-<p>🎬 Movie</p>
+Made with ❤️ by
+<b>Rajat Srivastava</b>
 
 </div>
+
+<!-- Couple Image -->
+
+<div class="imageBox">
+
+<img
+src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800"
+id="couple">
+
+</div>
+
+<!-- Heading -->
+
+<h1>
+
+Hey
+<span id="girlName">
+
+Ananya
+
+</span>
+
+😊
+
+</h1>
+
+<p class="subtitle">
+
+There is something I've been
+meaning to ask...
+
+</p>
+
+<p class="question">
+
+Would you like to spend some
+beautiful moments with me?
+
+</p>
+
+<!-- Activity Cards -->
+
+<div class="activities">
+
+<div class="activity">
+
+<div class="emoji">
+🍕
+</div>
+
+<h3>
+Lunch
+</h3>
+
+<p>
+Great food,
+great conversations.
+</p>
+
+</div>
+
+<div class="activity">
+
+<div class="emoji">
+☕
+</div>
+
+<h3>
+Coffee Date
+</h3>
+
+<p>
+A cup of coffee
+and lots of smiles.
+</p>
+
+</div>
+
+<div class="activity">
+
+<div class="emoji">
+🎬
+</div>
+
+<h3>
+Movie
+</h3>
+
+<p>
+Popcorn,
+movie
+and good company.
+</p>
+
+</div>
+
+<div class="activity">
+
+<div class="emoji">
+🌇
+</div>
+
+<h3>
+Evening Walk
+</h3>
+
+<p>
+Just walking,
+talking
+and making memories.
+</p>
+
+</div>
+
+</div>
+
+<!-- Buttons -->
 
 <div class="buttons">
 
-<button id="yesBtn">YES ❤️</button>
+<button id="yesBtn">
 
-<button id="noBtn">NO 🙈</button>
+YES ❤️
+
+</button>
+
+<button id="noBtn">
+
+NO 🙈
+
+</button>
+
+</div>
+
+<p class="footerText">
+
+You can choose one...
+
+or maybe all of them 😉
+
+</p>
+
+<!-- Celebration Popup -->
+
+<div class="popup" id="popup">
+
+<div class="popupCard">
+
+<h1>
+🎉 Yayyyyy!!
+</h1>
+
+<p>
+
+You just made my day ❤️
+
+</p>
+
+<p>
+
+Now let's make some beautiful memories together 😊
+
+</p>
+
+<button id="closePopup">
+
+Continue ❤️
+
+</button>
 
 </div>
 
 </div>
+
+<!-- Floating Hearts Container -->
+
+<div id="floatingHearts"></div>
+
+<!-- Music Toggle -->
+
+<button id="musicBtn">
+
+🎵
+
+</button>
+
+<!-- Hidden Audio -->
+
+<audio
+id="bgMusic"
+loop>
+
+<source
+src="assets/music.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<!-- Footer -->
+
+<footer>
+
+Made specially with ❤️
+
+</footer>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
