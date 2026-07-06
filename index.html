@@ -2,259 +2,317 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>DateQuest ❤️</title>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A cute interactive romantic proposal website">
 
-<title>DateQuest ❤️</title>
+    <link rel="icon"
+          href="favicon.ico">
 
-<meta name="theme-color"
-content="#ff5c8a">
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap"
+          rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
-<link rel="stylesheet"
-href="style.css">
-
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="style.css">
 </head>
 
 <body>
 
-<!-- Floating Hearts -->
-<div id="hearts"></div>
+    <!-- ========================= -->
+    <!-- Animated Background -->
+    <!-- ========================= -->
 
-<!-- Background Blur -->
-<div class="blur one"></div>
-<div class="blur two"></div>
+    <div class="gradient-bg"></div>
 
-<!-- Main Card -->
-<div class="glass">
+    <div class="blur-circle circle1"></div>
+    <div class="blur-circle circle2"></div>
+    <div class="blur-circle circle3"></div>
 
-<!-- Creator -->
+    <!-- Floating Hearts -->
 
-<div class="creator">
+    <div class="floating-hearts">
 
-Made with ❤️ by
-<b>Rajat Srivastava</b>
+        <span>❤️</span>
+        <span>💖</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💝</span>
+        <span>💘</span>
+        <span>❤️</span>
+        <span>💖</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💘</span>
+        <span>💝</span>
 
-</div>
+    </div>
 
-<!-- Couple Image -->
+    <!-- ========================= -->
+    <!-- Music Button -->
+    <!-- ========================= -->
 
-<div class="imageBox">
+    <button id="musicToggle"
+            class="music-btn">
 
-<img
-src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800"
-id="couple">
+        <i class="fa-solid fa-music"></i>
 
-</div>
+    </button>
 
-<!-- Heading -->
+    <!-- Background Music -->
 
-<h1>
+    <audio id="bgMusic"
+           loop>
 
-Hey
-<span id="girlName">
+        <source src="assets/music/romantic.mp3"
+                type="audio/mpeg">
 
-Ananya
+    </audio>
 
-</span>
+    <!-- ========================= -->
+    <!-- Main Container -->
+    <!-- ========================= -->
 
-😊
+    <main class="container">
 
-</h1>
+        <!-- Glass Card -->
 
-<p class="subtitle">
+        <section class="glass-card">
 
-There is something I've been
-meaning to ask...
+            <!-- Logo -->
 
-</p>
+            <div class="logo">
 
-<p class="question">
+                ❤️ DateQuest ❤️
 
-Would you like to spend some
-beautiful moments with me?
+            </div>
 
-</p>
+            <!-- Cartoon Couple -->
 
-<!-- Activity Cards -->
+            <div class="couple-wrapper">
 
-<div class="activities">
+                <img
+                    src="assets/images/couple.svg"
+                    alt="Cute Cartoon Couple"
+                    class="couple">
 
-<div class="activity">
+            </div>
 
-<div class="emoji">
-🍕
-</div>
+            <!-- Heading -->
 
-<h3>
-Lunch
-</h3>
+            <h1 class="title">
 
-<p>
-Great food,
-great conversations.
-</p>
+                Every Great Story Starts
+                <br>
+                With One Small "YES"
 
-</div>
+            </h1>
 
-<div class="activity">
+            <!-- Subtitle -->
 
-<div class="emoji">
-☕
-</div>
+            <p class="subtitle">
 
-<h3>
-Coffee Date
-</h3>
+                I have only one question...
 
-<p>
-A cup of coffee
-and lots of smiles.
-</p>
+                <br>
 
-</div>
+                And I promise it's the easiest one today.
 
-<div class="activity">
+            </p>
 
-<div class="emoji">
-🎬
-</div>
+            <!-- ========================= -->
+            <!-- Proposal Section -->
+            <!-- ========================= -->
 
-<h3>
-Movie
-</h3>
+            <div class="proposal-section">
 
-<p>
-Popcorn,
-movie
-and good company.
-</p>
+                <h2 class="question">
 
-</div>
+                    🌹 Will You Go On A Date With Me? 🌹
 
-<div class="activity">
+                </h2>
 
-<div class="emoji">
-🌇
-</div>
+                <p class="question-subtitle">
 
-<h3>
-Evening Walk
-</h3>
+                    Think carefully...
+                    (Well... you actually don't have to 😄)
 
-<p>
-Just walking,
-talking
-and making memories.
-</p>
+                </p>
 
-</div>
+                <!-- Buttons -->
 
-</div>
+                <div class="button-area">
 
-<!-- Buttons -->
+                    <button
+                        id="yesBtn"
+                        class="btn btn-yes">
 
-<div class="buttons">
+                        💖 YES 💖
 
-<button id="yesBtn">
+                    </button>
 
-YES ❤️
+                    <button
+                        id="noBtn"
+                        class="btn btn-no">
 
-</button>
+                        Nope 🙈
 
-<button id="noBtn">
+                    </button>
 
-NO 🙈
+                </div>
 
-</button>
+                <!-- Funny Messages -->
 
-</div>
+                <div id="messageBox"
+                     class="message-box">
 
-<p class="footerText">
+                    You can try...
+                    but the NO button has other plans 😏
 
-You can choose one...
+                </div>
 
-or maybe all of them 😉
+            </div>
 
-</p>
+            <!-- Decorative Hearts -->
 
-<!-- Celebration Popup -->
+            <div class="mini-hearts">
 
-<div class="popup" id="popup">
+                <span>💖</span>
+                <span>💕</span>
+                <span>❤️</span>
+                <span>💘</span>
+                <span>💝</span>
 
-<div class="popupCard">
+            </div>
 
-<h1>
-🎉 Yayyyyy!!
-</h1>
+        </section>
 
-<p>
+    </main>
 
-You just made my day ❤️
+    <!-- ========================= -->
+    <!-- Success Screen -->
+    <!-- ========================= -->
 
-</p>
+    <section id="successScreen"
+             class="success-screen">
 
-<p>
+        <div class="success-card">
 
-Now let's make some beautiful memories together 😊
+            <div class="success-heart">
 
-</p>
+                ❤️
 
-<button id="closePopup">
+            </div>
 
-Continue ❤️
+            <h2>
 
-</button>
+                YAAAAAY!! 🎉
 
-</div>
+            </h2>
 
-</div>
+            <p>
 
-<!-- Floating Hearts Container -->
+                You just made someone
+                incredibly happy today.
 
-<div id="floatingHearts"></div>
+            </p>
 
-<!-- Music Toggle -->
+            <p>
 
-<button id="musicBtn">
+                Can't wait for our date! 🌹✨
 
-🎵
+            </p>
 
-</button>
+            <button
+                id="celebrateBtn"
+                class="btn btn-celebrate">
 
-<!-- Hidden Audio -->
+                Celebrate Again 🎊
 
-<audio
-id="bgMusic"
-loop>
+            </button>
 
-<source
-src="assets/music.mp3"
-type="audio/mpeg">
+        </div>
 
-</audio>
+    </section>
 
-<!-- Footer -->
+    <!-- ========================= -->
+    <!-- Confetti -->
+    <!-- ========================= -->
 
-<footer>
+    <canvas id="confettiCanvas"></canvas>
 
-Made specially with ❤️
+    <!-- ========================= -->
+    <!-- Sparkles -->
+    <!-- ========================= -->
 
-</footer>
+    <div id="sparkles"></div>
 
-<script src="script.js"></script>
+    <!-- ========================= -->
+    <!-- Floating Emojis -->
+    <!-- ========================= -->
+
+    <div id="emojiContainer"></div>
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p>
+
+            Made with
+            <span class="heart">❤️</span>
+            by DateQuest
+
+        </p>
+
+        <p class="footer-small">
+
+            Every beautiful journey starts with one little "Yes".
+
+        </p>
+
+    </footer>
+
+    <!-- ========================= -->
+    <!-- Hidden Audio (Optional Click Effect) -->
+    <!-- ========================= -->
+
+    <audio id="clickSound" preload="auto">
+        <source src="assets/music/click.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="successSound" preload="auto">
+        <source src="assets/music/success.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ========================= -->
+    <!-- Scripts -->
+    <!-- ========================= -->
+
+    <!-- Optional Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 
