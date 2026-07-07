@@ -1,6 +1,6 @@
 // --- CONFIGURE YOUR NAMES HERE ---
-const YOUR_NAME = "Rajat";
-const HER_NAME = "XXXX"; // Replace XXXX with her actual name!
+const YOUR_NAME = "Vishal";
+const HER_NAME = "Vishal ki dost"; // Replace XXXX with her actual name!
 
 document.addEventListener("DOMContentLoaded", () => {
     
