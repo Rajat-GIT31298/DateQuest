@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // UI Elements 
     const btnNo = document.getElementById('btnNo');
     const btnYes1 = document.getElementById('btnYes1');
     const btnNext2 = document.getElementById('btnNext2');
@@ -16,90 +15,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const heartContainer = document.getElementById('heartContainer');
 
-    /* --- Helper: Navigation State Switcher --- */
-    function navigateToStep(targetStep) {
-        // Hide all steps
-        Object.values(steps).forEach(step => step.classList.remove('active'));
-        // Show selected step
-        steps[targetStep].classList.add('active');
+    /* --- Handles the Flow Sequence --- */
+    function navigateToStep(stepNumber) {
+        Object.keys(steps).forEach(key => {
+            steps[key].classList.remove('active');
+        });
+        steps[stepNumber].classList.add('active');
     }
 
-    /* --- Feature: Run Away/Shrink No Button --- */
-    function dodgeNoButton() {
-        const padding = 20;
-        const buttonRect = btnNo.getBoundingClientRect();
+    /* --- The Runaway No Button Feature --- */
+    function teleportNoButton() {
+        const padding = 30;
         
-        // Compute random safe coordinates on view space
-        const maxX = window.innerWidth - buttonRect.width - padding;
-        const maxY = window.innerHeight - buttonRect.height - padding;
+        // Compute available runtime windows
+        const maxX = window.innerWidth - btnNo.offsetWidth - padding;
+        const maxY = window.innerHeight - btnNo.offsetHeight - padding;
 
-        let randomX = Math.random() * maxX;
-        let randomY = Math.random() * maxY;
+        // Pick completely random viewport coordinates
+        const randomX = Math.floor(Math.random() * (maxX - padding)) + padding;
+        const randomY = Math.floor(Math.random() * (maxY - padding)) + padding;
 
-        // Force layout change to allow moving
-        if (btnNo.style.position !== 'fixed') {
-            btnNo.style.width = buttonRect.width + 'px';
-            btnNo.style.position = 'fixed';
-        }
-
-        btnNo.style.left = `${Math.max(padding, Math.min(randomX, maxX))}px`;
-        btnNo.style.top = `${Math.max(padding, Math.min(randomY, maxY))}px`;
+        // Apply instant override styles to move it out of layout flow
+        btnNo.style.position = 'fixed';
+        btnNo.style.left = `${randomX}px`;
+        btnNo.style.top = `${randomY}px`;
     }
 
-    btnNo.addEventListener('mouseenter', dodgeNoButton);
+    // Capture standard mice hovers and pointer coordinates
+    btnNo.addEventListener('mouseenter', teleportNoButton);
+    btnNo.addEventListener('mouseover', teleportNoButton);
+    
+    // Smooth compatibility hook for mobile devices
     btnNo.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        dodgeNoButton();
+        e.preventDefault(); // Blocks clicks from landing
+        teleportNoButton();
     });
 
-    /* --- Flow Navigation Mapping --- */
+    /* --- Interactive Steps Navigation --- */
     
-    // Step 1 -> Step 2
     btnYes1.addEventListener('click', () => {
+        // Reset No button state behind scenes if needed later
+        btnNo.style.position = 'relative';
+        btnNo.style.left = 'auto';
+        btnNo.style.top = 'auto';
         navigateToStep(2);
     });
 
-    // Step 2 -> Step 3
     btnNext2.addEventListener('click', () => {
         navigateToStep(3);
     });
 
-    // Step 3 -> Step 4 Validation
     btnNext3.addEventListener('click', () => {
-        const dateVal = document.getElementById('datePicker').value;
-        const timeVal = document.getElementById('timePicker').value;
+        const dateInput = document.getElementById('datePicker').value;
+        const timeInput = document.getElementById('timePicker').value;
 
-        if(!dateVal || !timeVal) {
-            alert("Please pick a day and time! 🥰");
+        if (!dateInput || !timeInput) {
+            alert("Please select a date and time first! 🥰");
             return;
         }
         navigateToStep(4);
     });
 
-    // Step 4 Grid Selection -> Step 5
+    // Grid Vibe Selectors mapping to Final Screen
     const vibeCards = document.querySelectorAll('.vibe-card');
     vibeCards.forEach(card => {
         card.addEventListener('click', () => {
-            const chosenVibe = card.getAttribute('data-vibe');
-            console.log(`User selected Vibe: ${chosenVibe}`); // Accessible context variable
             navigateToStep(5);
         });
     });
 
-    /* --- Background Particle Generator --- */
-    function spawnHearts() {
-        for (let i = 0; i < 10; i++) {
+    /* --- Soft Falling Hearts Engine --- */
+    function makeHearts() {
+        for (let i = 0; i < 8; i++) {
             setTimeout(() => {
                 const heart = document.createElement('div');
                 heart.classList.add('floating-heart');
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
                 heartContainer.appendChild(heart);
-
                 heart.addEventListener('animationend', () => heart.remove());
-            }, i * 400);
+            }, i * 350);
         }
     }
-    spawnHearts();
-    setInterval(spawnHearts, 8000);
+    makeHearts();
+    setInterval(makeHearts, 6000);
 });
