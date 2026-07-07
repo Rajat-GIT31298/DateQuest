@@ -1,319 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>DateQuest ❤️</title>
-
-    <meta name="description"
-          content="A cute interactive romantic proposal website">
-
-    <link rel="icon"
-          href="favicon.ico">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateQuest | An Important Mission</title>
+    <link rel="stylesheet" href="css/style.css">
     <!-- Google Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap"
-          rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
-
 <body>
 
-    <!-- ========================= -->
-    <!-- Animated Background -->
-    <!-- ========================= -->
+    <!-- Background Animation Canvas -->
+    <div class="heart-container" id="heartContainer"></div>
 
-    <div class="gradient-bg"></div>
-
-    <div class="blur-circle circle1"></div>
-    <div class="blur-circle circle2"></div>
-    <div class="blur-circle circle3"></div>
-
-    <!-- Floating Hearts -->
-
-    <div class="floating-hearts">
-
-        <span>❤️</span>
-        <span>💖</span>
-        <span>💕</span>
-        <span>💗</span>
-        <span>💝</span>
-        <span>💘</span>
-        <span>❤️</span>
-        <span>💖</span>
-        <span>💕</span>
-        <span>💗</span>
-        <span>💘</span>
-        <span>💝</span>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- Music Button -->
-    <!-- ========================= -->
-
-    <button id="musicToggle"
-            class="music-btn">
-
-        <i class="fa-solid fa-music"></i>
-
-    </button>
-
-    <!-- Background Music -->
-
-    <audio id="bgMusic"
-           loop>
-
-        <source src="assets/music/romantic.mp3"
-                type="audio/mpeg">
-
+    <!-- Background Audio (Replace source with your romantic track URL) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- ========================= -->
-    <!-- Main Container -->
-    <!-- ========================= -->
+    <!-- Music Control Float -->
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="music-icon"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+    </button>
 
-    <main class="container">
+    <!-- Main Glassmorphism Container -->
+    <main class="quest-card" id="questCard">
+        
+        <!-- Screen 1: The Invitation Quest -->
+        <section class="screen active" id="screenInvitation">
+            <header class="header-zone">
+                <span class="badge">MISSION: IMPOSSIBLE?</span>
+                <h1 class="title">Will you go on a date with me?</h1>
+                <p class="subtitle">Your choice determines the fate of the universe (or at least my weekend).</p>
+            </header>
 
-        <!-- Glass Card -->
+            <!-- Vector Couple Graphic -->
+            <div class="graphic-container">
+                <svg class="couple-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="blush" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffb3ba"/>
+                            <stop offset="100%" stop-color="#ffdfba"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Background Glow -->
+                    <circle cx="200" cy="150" r="80" fill="rgba(255, 255, 255, 0.15)" filter="blur(10px)"/>
+                    
+                    <!-- BOY (WITH GLASSES) -->
+                    <g id="boy" transform="translate(110, 80)">
+                        <!-- Hair -->
+                        <path d="M20 25 C10 10, 45 -5, 60 15 C70 5, 85 20, 75 35 C85 45, 65 65, 55 55" fill="#4a3728"/>
+                        <!-- Head / Face -->
+                        <circle cx="45" cy="45" r="30" fill="#ffdbac"/>
+                        <!-- Hair front fringe -->
+                        <path d="M18 28 C25 15, 50 12, 65 28 C55 22, 35 22, 18 28 Z" fill="#4a3728"/>
+                        <!-- Glasses -->
+                        <rect x="22" y="35" width="20" height="15" rx="4" fill="none" stroke="#111" stroke-width="3"/>
+                        <rect x="48" y="35" width="20" height="15" rx="4" fill="none" stroke="#111" stroke-width="3"/>
+                        <line x1="42" y1="42" x2="48" y2="42" stroke="#111" stroke-width="3"/>
+                        <!-- Eyes behind glasses -->
+                        <circle cx="32" cy="42" r="2.5" fill="#111"/>
+                        <circle cx="58" cy="42" r="2.5" fill="#111"/>
+                        <!-- Blush & Smile -->
+                        <circle cx="22" cy="52" r="4" fill="#ffb3ba" opacity="0.6"/>
+                        <circle cx="68" cy="52" r="4" fill="#ffb3ba" opacity="0.6"/>
+                        <path d="M40 56 Q45 62 50 56" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Clothes (Shirt) -->
+                        <path d="M15 75 Q45 65 75 75 L70 120 L20 120 Z" fill="#4ba3e3"/>
+                        <path d="M45 75 L35 90 L45 95 L55 90 Z" fill="#fff"/>
+                    </g>
 
-        <section class="glass-card">
+                    <!-- GIRL -->
+                    <g id="girl" transform="translate(210, 80)">
+                        <!-- Long Hair Back -->
+                        <path d="M10 40 C-10 70, 10 130, 45 130 C80 130, 100 70, 80 40" fill="#c96565"/>
+                        <!-- Head / Face -->
+                        <circle cx="45" cy="45" r="30" fill="#ffe0bd"/>
+                        <!-- Hair Front/Bang -->
+                        <path d="M15 32 C30 10, 60 10, 75 32 C65 20, 25 20, 15 32 Z" fill="#c96565"/>
+                        <!-- Eyes -->
+                        <circle cx="32" cy="40" r="2.5" fill="#111"/>
+                        <circle cx="58" cy="40" r="2.5" fill="#111"/>
+                        <path d="M28 35 Q32 32 35 36" fill="none" stroke="#111" stroke-width="1.5"/>
+                        <path d="M62 35 Q58 32 55 36" fill="none" stroke="#111" stroke-width="1.5"/>
+                        <!-- Blush & Smile -->
+                        <circle cx="22" cy="50" r="5" fill="#ffb3ba"/>
+                        <circle cx="68" cy="50" r="5" fill="#ffb3ba"/>
+                        <path d="M40 54 Q45 60 50 54" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Clothes (Dress) -->
+                        <path d="M15 75 Q45 68 75 75 L85 120 L5 120 Z" fill="#ff6b81"/>
+                    </g>
 
-            <!-- Logo -->
-
-            <div class="logo">
-
-                ❤️ DateQuest ❤️
-
+                    <!-- Floating Center Heart connecting them -->
+                    <path d="M200 110 C200 105, 195 95, 185 95 C175 95, 170 103, 170 112 C170 125, 190 137, 200 145 C210 137, 230 125, 230 112 C230 103, 225 95, 215 95 C205 95, 200 105, 200 110 Z" fill="#ff4757">
+                        <animate attributeName="transform" type="scale" values="1; 1.1; 1" dur="1.2s" repeatCount="indefinite" transform-origin="200 120"/>
+                    </path>
+                </svg>
             </div>
 
-            <!-- Cartoon Couple -->
-
-            <div class="couple-wrapper">
-
-                <img
-                    src="assets/images/couple.svg"
-                    alt="Cute Cartoon Couple"
-                    class="couple">
-
+            <!-- Interactive Action Area -->
+            <div class="action-zone">
+                <button class="btn btn-yes" id="btnYes">YES! Real-time Strategy</button>
+                <button class="btn btn-no" id="btnNo">No thanks</button>
             </div>
+        </section>
 
-            <!-- Heading -->
-
-            <h1 class="title">
-
-                Every Great Story Starts
-                <br>
-                With One Small "YES"
-
-            </h1>
-
-            <!-- Subtitle -->
-
-            <p class="subtitle">
-
-                I have only one question...
-
-                <br>
-
-                And I promise it's the easiest one today.
-
-            </p>
-
-            <!-- ========================= -->
-            <!-- Proposal Section -->
-            <!-- ========================= -->
-
-            <div class="proposal-section">
-
-                <h2 class="question">
-
-                    🌹 Will You Go On A Date With Me? 🌹
-
-                </h2>
-
-                <p class="question-subtitle">
-
-                    Think carefully...
-                    (Well... you actually don't have to 😄)
-
-                </p>
-
-                <!-- Buttons -->
-
-                <div class="button-area">
-
-                    <button
-                        id="yesBtn"
-                        class="btn btn-yes">
-
-                        💖 YES 💖
-
-                    </button>
-
-                    <button
-                        id="noBtn"
-                        class="btn btn-no">
-
-                        Nope 🙈
-
-                    </button>
-
-                </div>
-
-                <!-- Funny Messages -->
-
-                <div id="messageBox"
-                     class="message-box">
-
-                    You can try...
-                    but the NO button has other plans 😏
-
-                </div>
-
+        <!-- Screen 2: Victory Success Screen -->
+        <section class="screen" id="screenSuccess">
+            <div class="success-graphic">
+                <div class="heart-seal">❤️</div>
             </div>
-
-            <!-- Decorative Hearts -->
-
-            <div class="mini-hearts">
-
-                <span>💖</span>
-                <span>💕</span>
-                <span>❤️</span>
-                <span>💘</span>
-                <span>💝</span>
-
+            <h2 class="title text-gradient">Mission Complete!</h2>
+            <p class="subtitle">Locking down the timeline. Prepare your favorite outfit, we are going out! 🥂 ✨</p>
+            <div class="details-box">
+                <p><strong>Status:</strong> Successfully Scheduled</p>
+                <p><strong>Coordinator:</strong> The guy with the cool glasses</p>
             </div>
-
         </section>
 
     </main>
 
-    <!-- ========================= -->
-    <!-- Success Screen -->
-    <!-- ========================= -->
-
-    <section id="successScreen"
-             class="success-screen">
-
-        <div class="success-card">
-
-            <div class="success-heart">
-
-                ❤️
-
-            </div>
-
-            <h2>
-
-                YAAAAAY!! 🎉
-
-            </h2>
-
-            <p>
-
-                You just made someone
-                incredibly happy today.
-
-            </p>
-
-            <p>
-
-                Can't wait for our date! 🌹✨
-
-            </p>
-
-            <button
-                id="celebrateBtn"
-                class="btn btn-celebrate">
-
-                Celebrate Again 🎊
-
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- Confetti -->
-    <!-- ========================= -->
-
-    <canvas id="confettiCanvas"></canvas>
-
-    <!-- ========================= -->
-    <!-- Sparkles -->
-    <!-- ========================= -->
-
-    <div id="sparkles"></div>
-
-    <!-- ========================= -->
-    <!-- Floating Emojis -->
-    <!-- ========================= -->
-
-    <div id="emojiContainer"></div>
-
-    <!-- ========================= -->
-    <!-- Footer -->
-    <!-- ========================= -->
-
-    <footer class="footer">
-
-        <p>
-
-            Made with
-            <span class="heart">❤️</span>
-            by DateQuest
-
-        </p>
-
-        <p class="footer-small">
-
-            Every beautiful journey starts with one little "Yes".
-
-        </p>
-
-    </footer>
-
-    <!-- ========================= -->
-    <!-- Hidden Audio (Optional Click Effect) -->
-    <!-- ========================= -->
-
-    <audio id="clickSound" preload="auto">
-        <source src="assets/music/click.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio id="successSound" preload="auto">
-        <source src="assets/music/success.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- ========================= -->
-    <!-- Scripts -->
-    <!-- ========================= -->
-
-    <!-- Optional Confetti Library -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-    <!-- Main JavaScript -->
-    <script src="script.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
-
 </html>
