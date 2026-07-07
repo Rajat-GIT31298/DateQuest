@@ -1,142 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // UI Elements Hooking
+    // UI Elements 
     const btnNo = document.getElementById('btnNo');
-    const btnYes = document.getElementById('btnYes');
-    const screenInvitation = document.getElementById('screenInvitation');
-    const screenSuccess = document.getElementById('screenSuccess');
-    const musicToggle = document.getElementById('musicToggle');
-    const bgMusic = document.getElementById('bgMusic');
+    const btnYes1 = document.getElementById('btnYes1');
+    const btnNext2 = document.getElementById('btnNext2');
+    const btnNext3 = document.getElementById('btnNext3');
+    
+    const steps = {
+        1: document.getElementById('step1'),
+        2: document.getElementById('step2'),
+        3: document.getElementById('step3'),
+        4: document.getElementById('step4'),
+        5: document.getElementById('step5'),
+    };
+
     const heartContainer = document.getElementById('heartContainer');
 
-    /* --- Particle Engine: Generates Soft Ambient Falling Hearts --- */
-    function createAmbientHearts() {
-        const heartCount = 15;
-        for (let i = 0; i < heartCount; i++) {
-            setTimeout(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                
-                // Randomizing horizontal anchors & sizes
-                heart.style.left = Math.random() * 100 + 'vw';
-                const size = Math.random() * 15 + 10;
-                heart.style.width = `${size}px`;
-                heart.style.height = `${size}px`;
-                
-                // Varied floating timelines
-                heart.style.animationDuration = Math.random() * 4 + 6 + 's';
-                heart.style.opacity = Math.random() * 0.4 + 0.3;
-                
-                heartContainer.appendChild(heart);
-
-                // Safe clean up cycle
-                heart.addEventListener('animationend', () => {
-                    heart.remove();
-                });
-            }, i * 600);
-        }
+    /* --- Helper: Navigation State Switcher --- */
+    function navigateToStep(targetStep) {
+        // Hide all steps
+        Object.values(steps).forEach(step => step.classList.remove('active'));
+        // Show selected step
+        steps[targetStep].classList.add('active');
     }
-    
-    // Maintain regular interval generator loop
-    createAmbientHearts();
-    setInterval(createAmbientHearts, 10000);
 
-    /* --- Core Mechanic: Interactive Impossible-To-Click "No" Button --- */
+    /* --- Feature: Run Away/Shrink No Button --- */
     function dodgeNoButton() {
-        // Calculate safe responsive window vectors
         const padding = 20;
-        const cardRect = document.getElementById('questCard').getBoundingClientRect();
-        const btnRect = btnNo.getBoundingClientRect();
-
-        // Convert context to absolute positioning coordinate values if not done
-        if (btnNo.style.position !== 'fixed') {
-            btnNo.style.width = btnRect.width + 'px';
-            btnNo.style.height = btnRect.height + 'px';
-            btnNo.style.position = 'fixed';
-        }
-
-        // Generate random placements constrained safely inside visible screen real-estate
-        const maxX = window.innerWidth - btnRect.width - padding;
-        const maxY = window.innerHeight - btnRect.height - padding;
+        const buttonRect = btnNo.getBoundingClientRect();
+        
+        // Compute random safe coordinates on view space
+        const maxX = window.innerWidth - buttonRect.width - padding;
+        const maxY = window.innerHeight - buttonRect.height - padding;
 
         let randomX = Math.random() * maxX;
         let randomY = Math.random() * maxY;
 
-        // Ensure button does not accidentally jump directly underneath the user's cursor pointer
-        if (Math.abs(randomX - btnRect.left) < 100) randomX += 150;
-        if (Math.abs(randomY - btnRect.top) < 100) randomY += 150;
+        // Force layout change to allow moving
+        if (btnNo.style.position !== 'fixed') {
+            btnNo.style.width = buttonRect.width + 'px';
+            btnNo.style.position = 'fixed';
+        }
 
-        btnNo.style.left = `${Math.min(Math.max(padding, randomX), maxX)}px`;
-        btnNo.style.top = `${Math.min(Math.max(padding, randomY), maxY)}px`;
+        btnNo.style.left = `${Math.max(padding, Math.min(randomX, maxX))}px`;
+        btnNo.style.top = `${Math.max(padding, Math.min(randomY, maxY))}px`;
     }
 
-    // Capture standard desktop hover and rapid touch events for mobile screens
     btnNo.addEventListener('mouseenter', dodgeNoButton);
     btnNo.addEventListener('touchstart', (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         dodgeNoButton();
     });
 
-    /* --- Flow Logic: Successful State Transition --- */
-    btnYes.addEventListener('click', () => {
-        // Clean out dynamic temporary styles from No actions
-        btnNo.style.position = 'relative';
-        btnNo.style.left = '0';
-        btnNo.style.top = '0';
-
-        // Swap Layout state screens
-        screenInvitation.classList.remove('active');
-        
-        setTimeout(() => {
-            screenSuccess.classList.add('active');
-            triggerConfettiBurst();
-            // Optional: Auto-play music if not running when Yes is pressed
-            if (bgMusic.paused) {
-                toggleMusicState();
-            }
-        }, 300);
+    /* --- Flow Navigation Mapping --- */
+    
+    // Step 1 -> Step 2
+    btnYes1.addEventListener('click', () => {
+        navigateToStep(2);
     });
 
-    /* --- FX System: Canvas Confetti Explosions --- */
-    function triggerConfettiBurst() {
-        const duration = 4 * 1000;
-        const end = Date.now() + duration;
+    // Step 2 -> Step 3
+    btnNext2.addEventListener('click', () => {
+        navigateToStep(3);
+    });
 
-        (function frame() {
-            confetti({
-                particleCount: 3,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0, y: 0.8 },
-                colors: ['#ff4757', '#ff6b81', '#ff7f50', '#ffffff']
-            });
-            confetti({
-                particleCount: 3,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1, y: 0.8 },
-                colors: ['#ff4757', '#ff6b81', '#ff7f50', '#ffffff']
-            });
+    // Step 3 -> Step 4 Validation
+    btnNext3.addEventListener('click', () => {
+        const dateVal = document.getElementById('datePicker').value;
+        const timeVal = document.getElementById('timePicker').value;
 
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        }());
-    }
+        if(!dateVal || !timeVal) {
+            alert("Please pick a day and time! 🥰");
+            return;
+        }
+        navigateToStep(4);
+    });
 
-    /* --- Audio Media Management Engine --- */
-    function toggleMusicState() {
-        if (bgMusic.paused) {
-            bgMusic.play().then(() => {
-                musicToggle.classList.add('playing');
-            }).catch(err => {
-                console.log("Browser block protection stopped autoplay: ", err);
-            });
-        } else {
-            bgMusic.pause();
-            musicToggle.classList.remove('playing');
+    // Step 4 Grid Selection -> Step 5
+    const vibeCards = document.querySelectorAll('.vibe-card');
+    vibeCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const chosenVibe = card.getAttribute('data-vibe');
+            console.log(`User selected Vibe: ${chosenVibe}`); // Accessible context variable
+            navigateToStep(5);
+        });
+    });
+
+    /* --- Background Particle Generator --- */
+    function spawnHearts() {
+        for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+                heartContainer.appendChild(heart);
+
+                heart.addEventListener('animationend', () => heart.remove());
+            }, i * 400);
         }
     }
-
-    musicToggle.addEventListener('click', toggleMusicState);
+    spawnHearts();
+    setInterval(spawnHearts, 8000);
 });
