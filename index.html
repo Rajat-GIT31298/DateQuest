@@ -3,123 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DateQuest | Special Mission</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DateQuest</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="heart-container" id="heartContainer"></div>
-
-    <main class="card-container">
+    <main class="card">
         
-        <section class="step-content active" id="step1">
-            <div class="avatar-wrapper">
-                <svg viewBox="0 0 200 140" class="couple-svg" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(45, 25)">
-                        <circle cx="35" cy="35" r="28" fill="#ffe0bd"/>
-                        <path d="M12 22 C15 5, 55 5, 58 22" fill="#4a3728"/>
-                        <rect x="15" cy="28" width="16" height="12" rx="3" fill="none" stroke="#1e293b" stroke-width="2.5"/>
-                        <rect x="39" cy="28" width="16" height="12" rx="3" fill="none" stroke="#1e293b" stroke-width="2.5"/>
-                        <line x1="31" y1="34" x2="39" y2="34" stroke="#1e293b" stroke-width="2.5"/>
-                        <circle cx="23" cy="34" r="2" fill="#1e293b"/>
-                        <circle cx="47" cy="34" r="2" fill="#1e293b"/>
-                        <path d="M28 48 Q35 53 42 48" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M10 63 Q35 55 60 63 L55 90 L15 90 Z" fill="#3b82f6"/>
+        <section class="step active" id="step1">
+            <div class="avatar-container">
+                <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="custom-avatar">
+                    <g transform="translate(40, 20)">
+                        <path d="M10 160 Q60 120 110 160 L110 180 L10 180 Z" fill="#0052cc" />
+                        <circle cx="60" cy="90" r="50" fill="#f0c7a8" />
+                        <path d="M10 90 C10 40, 110 40, 110 90 C110 70, 10 70, 10 90 Z" fill="#4d331f" />
+                        <rect x="20" y="55" width="35" height="25" rx="5" fill="none" stroke="#222b40" stroke-width="8" />
+                        <rect x="65" y="55" width="35" height="25" rx="5" fill="none" stroke="#222b40" stroke-width="8" />
+                        <line x1="55" y1="67" x2="65" y2="67" stroke="#222b40" stroke-width="8" />
+                        <circle cx="37" cy="95" r="4" fill="#111" />
+                        <circle cx="82" cy="95" r="4" fill="#111" />
+                        <path d="M40 115 Q60 130 80 115" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" />
                     </g>
-                    <g transform="translate(95, 25)">
-                        <path d="M8 30 C-10 50, 10 95, 35 95 C60 95, 80 50, 62 30" fill="#a855f7"/>
-                        <circle cx="35" cy="35" r="26" fill="#ffd1a9"/>
-                        <path d="M12 24 C20 10, 50 10, 58 24" fill="#a855f7"/>
-                        <circle cx="24" cy="35" r="2" fill="#1e293b"/>
-                        <circle cx="46" cy="35" r="2" fill="#1e293b"/>
-                        <path d="M28 48 Q35 54 42 48" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M12 61 Q35 55 58 61 L52 90 L18 90 Z" fill="#f43f5e"/>
+                    
+                    <g transform="translate(150, 20)">
+                        <path d="M20 150 Q70 120 120 150 L120 180 L20 180 Z" fill="#cc0000" />
+                        <path d="M0 160 C-10 60, 40 -10, 90 20 C140 -10, 150 60, 140 160 Z" fill="#8c1eff" />
+                        <circle cx="70" cy="90" r="45" fill="#f0c7a8" />
+                        <path d="M25 90 C30 50, 110 50, 115 90 C110 65, 30 65, 25 90 Z" fill="#a64dff" />
+                        <circle cx="50" cy="95" r="4" fill="#111" />
+                        <circle cx="90" cy="95" r="4" fill="#111" />
+                        <path d="M55 115 Q70 125 85 115" fill="none" stroke="#e6005c" stroke-width="4" stroke-linecap="round" />
                     </g>
-                    <path d="M100 50 C100 47, 97 42, 92 42 C87 42, 85 46, 85 50 C85 57, 95 64, 100 68 C105 64, 115 57, 115 50 C115 46, 113 42, 108 42 C103 42, 100 47, 100 50 Z" fill="#ec4899"/>
+
+                    <path d="M150 110 C150 100, 130 80, 110 95 C90 110, 110 140, 150 165 C190 140, 210 110, 190 95 C170 80, 150 100, 150 110 Z" fill="#ff1a75" />
                 </svg>
             </div>
-            <h1 class="heading">Will you go on a date with me?</h1>
-            <div class="btn-group">
-                <button class="btn btn-yes" id="btnYes1">YES! 💗</button>
-                <button class="btn btn-no" id="btnNo">no</button>
+            
+            <h1 class="title">Will you go on a date with me?</h1>
+            
+            <div class="button-container">
+                <button class="btn btn-yes" id="btnYes1">YES! ♥️</button>
+                <button class="btn btn-no" id="btnNo">no 😭</button>
             </div>
         </section>
 
-        <section class="step-content" id="step2">
-            <div class="emoji-header">🤭</div>
-            <h1 class="heading">WAIT YOU ACTUALLY SAID YES??</h1>
-            <p class="subheading">I was entirely ready for you to say no...</p>
-            <button class="btn btn-next" id="btnNext2">okay okay! ➡️</button>
+        <section class="step" id="step2">
+            <h1 class="title">WAIT YOU ACTUALLY SAID YES??</h1>
+            <p class="subtitle">I was entirely ready for you to say no...</p>
+            <button class="btn btn-yes btn-wide" id="btnNext2">okay okay! ➡️</button>
         </section>
 
-        <section class="step-content" id="step3">
-            <div class="emoji-header">🗓️ ✨</div>
-            <h1 class="heading">So... when are you free?</h1>
+        <section class="step" id="step3">
+            <h1 class="title">So... when are you free?</h1>
             
-            <div class="form-group">
-                <label for="datePicker">Pick a Day 📆</label>
+            <div class="input-group">
+                <label>Pick a Day 📅</label>
                 <input type="date" id="datePicker" required>
             </div>
 
-            <div class="form-group">
-                <label for="timePicker">What Time? 🕒</label>
+            <div class="input-group">
+                <label>What Time? 🕒</label>
                 <select id="timePicker" required>
                     <option value="" disabled selected>Select a time...</option>
                     <option value="12:00 PM">12:00 PM</option>
-                    <option value="1:30 PM">1:30 PM</option>
-                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
                     <option value="6:00 PM">6:00 PM</option>
-                    <option value="7:30 PM">7:30 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
                 </select>
             </div>
 
-            <button class="btn btn-next" id="btnNext3">set the date! ♥️</button>
+            <button class="btn btn-yes btn-wide" id="btnNext3">set the date! ♥️</button>
         </section>
 
-        <section class="step-content" id="step4">
-            <h1 class="heading">What are we feeling? 🍽️</h1>
-            <p class="subheading">pick your vibe</p>
+        <section class="step" id="step4">
+            <h1 class="title">What are we feeling? 🍽️</h1>
+            <p class="subtitle">pick your vibe</p>
             
-            <div class="vibe-grid">
-                <div class="vibe-card">
-                    <span class="vibe-emoji">🍕</span>
-                    <span class="vibe-title">Pizza</span>
+            <div class="grid">
+                <div class="grid-item">
+                    <span class="emoji">🥘</span>
+                    <span class="label">Biryani</span>
                 </div>
-                <div class="vibe-card">
-                    <span class="vibe-emoji">🍣</span>
-                    <span class="vibe-title">Sushi</span>
+                <div class="grid-item">
+                    <span class="emoji">☕</span>
+                    <span class="label">Coffee</span>
                 </div>
-                <div class="vibe-card">
-                    <span class="vibe-emoji">🍔</span>
-                    <span class="vibe-title">Burgers</span>
+                <div class="grid-item">
+                    <span class="emoji">🍕</span>
+                    <span class="label">Pizza</span>
                 </div>
-                <div class="vibe-card">
-                    <span class="vibe-emoji">🍝</span>
-                    <span class="vibe-title">Pasta</span>
+                <div class="grid-item">
+                    <span class="emoji">🍲</span>
+                    <span class="label">Tikki Chaat</span>
                 </div>
-                <div class="vibe-card">
-                    <span class="vibe-emoji">🌮</span>
-                    <span class="vibe-title">Tacos</span>
+                <div class="grid-item">
+                    <span class="emoji">🫓</span>
+                    <span class="label">Paratha</span>
                 </div>
-                <div class="vibe-card">
-                    <span class="vibe-emoji">🍜</span>
-                    <span class="vibe-title">Ramen</span>
+                <div class="grid-item">
+                    <span class="emoji">🍰</span>
+                    <span class="label">Desserts</span>
                 </div>
             </div>
         </section>
 
-        <section class="step-content" id="step5">
-            <h1 class="heading final-text">glad you didn't say no. be ready by 6, I'm coming to get you 🚗</h1>
-            <div class="divider"></div>
-            <p class="credit-text">P.S. normal people text. I made a website for you during lunch. no big deal.</p>
-            <div class="heart-row">❤️❤️❤️❤️❤️</div>
+        <section class="step" id="step5">
+            <h1 class="title final-text">glad you didn't say no. be ready by 6, I'm coming to get you 🚗</h1>
+            <p class="ps-text">P.S. normal people text. I made a website for you during lunch. no big deal.</p>
+            <div class="hearts">❤️❤️❤️❤️❤️</div>
         </section>
 
     </main>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
