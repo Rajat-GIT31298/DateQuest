@@ -1,6 +1,6 @@
 // --- CONFIGURE YOUR SETTINGS HERE ---
-const YOUR_NAME = "Rajat";
-const HER_NAME = "aaaa"; 
+const YOUR_NAME = "Vishal";
+const HER_NAME = "Vishal ki dost"; 
 
 // Enter your phone number WITH the country code, but WITHOUT the '+' sign.
 // Example for India: "919876543210"
