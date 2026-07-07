@@ -3,45 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DateQuest | A Special Request</title>
+    <title>DateQuest | Special Mission</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts for the clean aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Ambient Floating Hearts Background -->
     <div class="heart-container" id="heartContainer"></div>
 
-    <!-- Main Container -->
     <main class="card-container">
         
-        <!-- STEP 1: The Initial Proposal -->
         <section class="step-content active" id="step1">
             <div class="avatar-wrapper">
-                <!-- Using a cute placeholder pug image like the video -->
-                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=150&auto=format&fit=crop&q=80" alt="Pug Avatar" class="avatar-img">
+                <svg viewBox="0 0 200 140" class="couple-svg" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(45, 25)">
+                        <circle cx="35" cy="35" r="28" fill="#ffe0bd"/>
+                        <path d="M12 22 C15 5, 55 5, 58 22" fill="#4a3728"/>
+                        <rect x="15" cy="28" width="16" height="12" rx="3" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+                        <rect x="39" cy="28" width="16" height="12" rx="3" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+                        <line x1="31" y1="34" x2="39" y2="34" stroke="#1e293b" stroke-width="2.5"/>
+                        <circle cx="23" cy="34" r="2" fill="#1e293b"/>
+                        <circle cx="47" cy="34" r="2" fill="#1e293b"/>
+                        <path d="M28 48 Q35 53 42 48" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M10 63 Q35 55 60 63 L55 90 L15 90 Z" fill="#3b82f6"/>
+                    </g>
+                    <g transform="translate(95, 25)">
+                        <path d="M8 30 C-10 50, 10 95, 35 95 C60 95, 80 50, 62 30" fill="#a855f7"/>
+                        <circle cx="35" cy="35" r="26" fill="#ffd1a9"/>
+                        <path d="M12 24 C20 10, 50 10, 58 24" fill="#a855f7"/>
+                        <circle cx="24" cy="35" r="2" fill="#1e293b"/>
+                        <circle cx="46" cy="35" r="2" fill="#1e293b"/>
+                        <path d="M28 48 Q35 54 42 48" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 61 Q35 55 58 61 L52 90 L18 90 Z" fill="#f43f5e"/>
+                    </g>
+                    <path d="M100 50 C100 47, 97 42, 92 42 C87 42, 85 46, 85 50 C85 57, 95 64, 100 68 C105 64, 115 57, 115 50 C115 46, 113 42, 108 42 C103 42, 100 47, 100 50 Z" fill="#ec4899"/>
+                </svg>
             </div>
-            <h1 class="heading">🌸 Will you go on a date with me? 🌸</h1>
+            <h1 class="heading">Will you go on a date with me?</h1>
             <div class="btn-group">
                 <button class="btn btn-yes" id="btnYes1">YES! 💗</button>
-                <button class="btn btn-no" id="btnNo">no 😭</button>
+                <button class="btn btn-no" id="btnNo">no</button>
             </div>
         </section>
 
-        <!-- STEP 2: The Shocked Reaction -->
         <section class="step-content" id="step2">
-            <div class="emoji-header">🤗</div>
-            <h1 class="heading">WAIT YOU ACTUALLY SAID YES?? 😂</h1>
-            <p class="subheading">I was so ready for you to say no 😜</p>
+            <div class="emoji-header">🤭</div>
+            <h1 class="heading">WAIT YOU ACTUALLY SAID YES??</h1>
+            <p class="subheading">I was entirely ready for you to say no...</p>
             <button class="btn btn-next" id="btnNext2">okay okay! ➡️</button>
         </section>
 
-        <!-- STEP 3: Date & Time Picker -->
         <section class="step-content" id="step3">
-            <div class="emoji-header">🗓️🐾</div>
+            <div class="emoji-header">🗓️ ✨</div>
             <h1 class="heading">So... when are you free?</h1>
             
             <div class="form-group">
@@ -54,51 +69,48 @@
                 <select id="timePicker" required>
                     <option value="" disabled selected>Select a time...</option>
                     <option value="12:00 PM">12:00 PM</option>
-                    <option value="1:00 PM">1:00 PM</option>
-                    <option value="2:30 PM">2:30 PM</option>
-                    <option value="5:00 PM">5:00 PM</option>
-                    <option value="7:00 PM">7:00 PM</option>
-                    <option value="8:30 PM">8:30 PM</option>
+                    <option value="1:30 PM">1:30 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="7:30 PM">7:30 PM</option>
                 </select>
             </div>
 
             <button class="btn btn-next" id="btnNext3">set the date! ♥️</button>
         </section>
 
-        <!-- STEP 4: Food Vibe Grid Selector -->
         <section class="step-content" id="step4">
-            <h1 class="heading">What are we feeling? 🍽️✨</h1>
-            <p class="subheading text-muted">pick your vibe</p>
+            <h1 class="heading">What are we feeling? 🍽️</h1>
+            <p class="subheading">pick your vibe</p>
             
             <div class="vibe-grid">
-                <div class="vibe-card" data-vibe="Pizza">
+                <div class="vibe-card">
                     <span class="vibe-emoji">🍕</span>
                     <span class="vibe-title">Pizza</span>
                 </div>
-                <div class="vibe-card" data-vibe="Sushi">
+                <div class="vibe-card">
                     <span class="vibe-emoji">🍣</span>
                     <span class="vibe-title">Sushi</span>
                 </div>
-                <div class="vibe-card" data-vibe="Burgers">
+                <div class="vibe-card">
                     <span class="vibe-emoji">🍔</span>
                     <span class="vibe-title">Burgers</span>
                 </div>
-                <div class="vibe-card" data-vibe="Pasta">
+                <div class="vibe-card">
                     <span class="vibe-emoji">🍝</span>
                     <span class="vibe-title">Pasta</span>
                 </div>
-                <div class="vibe-card" data-vibe="Tacos">
+                <div class="vibe-card">
                     <span class="vibe-emoji">🌮</span>
                     <span class="vibe-title">Tacos</span>
                 </div>
-                <div class="vibe-card" data-vibe="Ramen">
+                <div class="vibe-card">
                     <span class="vibe-emoji">🍜</span>
                     <span class="vibe-title">Ramen</span>
                 </div>
             </div>
         </section>
 
-        <!-- STEP 5: Final Wrap Up Screen -->
         <section class="step-content" id="step5">
             <h1 class="heading final-text">glad you didn't say no. be ready by 6, I'm coming to get you 🚗</h1>
             <div class="divider"></div>
