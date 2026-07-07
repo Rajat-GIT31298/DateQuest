@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DateQuest</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <title>Just a question...</title>
+    <link rel="stylesheet" href="style.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,47 +15,26 @@
         
         <section class="step active" id="step1">
             <div class="avatar-container">
-                <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="custom-avatar">
-                    <g transform="translate(40, 20)">
-                        <path d="M10 160 Q60 120 110 160 L110 180 L10 180 Z" fill="#0052cc" />
-                        <circle cx="60" cy="90" r="50" fill="#f0c7a8" />
-                        <path d="M10 90 C10 40, 110 40, 110 90 C110 70, 10 70, 10 90 Z" fill="#4d331f" />
-                        <rect x="20" y="55" width="35" height="25" rx="5" fill="none" stroke="#222b40" stroke-width="8" />
-                        <rect x="65" y="55" width="35" height="25" rx="5" fill="none" stroke="#222b40" stroke-width="8" />
-                        <line x1="55" y1="67" x2="65" y2="67" stroke="#222b40" stroke-width="8" />
-                        <circle cx="37" cy="95" r="4" fill="#111" />
-                        <circle cx="82" cy="95" r="4" fill="#111" />
-                        <path d="M40 115 Q60 130 80 115" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" />
-                    </g>
-                    <g transform="translate(150, 20)">
-                        <path d="M20 150 Q70 120 120 150 L120 180 L20 180 Z" fill="#cc0000" />
-                        <path d="M0 160 C-10 60, 40 -10, 90 20 C140 -10, 150 60, 140 160 Z" fill="#8c1eff" />
-                        <circle cx="70" cy="90" r="45" fill="#f0c7a8" />
-                        <path d="M25 90 C30 50, 110 50, 115 90 C110 65, 30 65, 25 90 Z" fill="#a64dff" />
-                        <circle cx="50" cy="95" r="4" fill="#111" />
-                        <circle cx="90" cy="95" r="4" fill="#111" />
-                        <path d="M55 115 Q70 125 85 115" fill="none" stroke="#e6005c" stroke-width="4" stroke-linecap="round" />
-                    </g>
-                    <path d="M150 110 C150 100, 130 80, 110 95 C90 110, 110 140, 150 165 C190 140, 210 110, 190 95 C170 80, 150 100, 150 110 Z" fill="#ff1a75" />
-                </svg>
+                <img src="couple.png" alt="Cute Couple" class="custom-image">
             </div>
             
-            <h1 class="title">Will you go on a date with me?</h1>
+            <h1 class="title">Would you be open to hanging out sometime?</h1>
+            <p class="made-by">Made by <span id="authorName">Rajat</span> for <span id="targetName">XXXX</span></p>
             
             <div class="button-container">
-                <button class="btn btn-yes" id="btnYes1">YES! ♥️</button>
-                <button class="btn btn-no" id="btnNo">no 😭</button>
+                <button class="btn btn-yes" id="btnYes1">I'd love to! ✨</button>
+                <button class="btn btn-no" id="btnNo">no thanks</button>
             </div>
         </section>
 
         <section class="step" id="step2">
-            <h1 class="title">WAIT YOU ACTUALLY SAID YES??</h1>
-            <p class="subtitle">I was entirely ready for you to say no...</p>
-            <button class="btn btn-yes btn-wide" id="btnNext2">okay okay! ➡️</button>
+            <h1 class="title">Wait, really? That's awesome!</h1>
+            <p class="subtitle">I was hoping you'd say that...</p>
+            <button class="btn btn-yes btn-wide" id="btnNext2">Let's figure it out ➡️</button>
         </section>
 
         <section class="step" id="step3">
-            <h1 class="title">So... when are you free?</h1>
+            <h1 class="title">When are you usually free?</h1>
             
             <div class="input-group">
                 <label>Pick a Day 📅</label>
@@ -63,7 +42,7 @@
             </div>
 
             <div class="input-group">
-                <label>What Time? 🕒</label>
+                <label>Around what time? 🕒</label>
                 <select id="timePicker" required>
                     <option value="" disabled selected>Select a time...</option>
                     <option value="12:00 PM">12:00 PM</option>
@@ -74,12 +53,12 @@
                 </select>
             </div>
 
-            <button class="btn btn-yes btn-wide" id="btnNext3">set the date! ♥️</button>
+            <button class="btn btn-yes btn-wide" id="btnNext3">Lock it in ♥️</button>
         </section>
 
         <section class="step" id="step4">
-            <h1 class="title">What are we feeling? 🍽️</h1>
-            <p class="subtitle">pick your vibe</p>
+            <h1 class="title">What's your usual vibe? 🍽️</h1>
+            <p class="subtitle">Just so I know what you like</p>
             
             <div class="grid">
                 <div class="grid-item">
@@ -110,13 +89,13 @@
         </section>
 
         <section class="step" id="step5">
-            <h1 class="title final-text">glad you didn't say no. be ready by 6, I'm coming to get you 🚗</h1>
-            <p class="ps-text">P.S. normal people text. I made a website for you during lunch. no big deal.</p>
+            <h1 class="title final-text">Awesome. I'll make a plan and text you! 🚗</h1>
+            <p class="ps-text">P.S. Normal people just text, but I thought this would be a bit more fun.</p>
             <div class="hearts">❤️❤️❤️❤️❤️</div>
         </section>
 
     </main>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
