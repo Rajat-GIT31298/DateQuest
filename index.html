@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Just a question...</title>
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,10 +17,8 @@
             <div class="avatar-container">
                 <img src="couple.png" alt="Cute Couple" class="custom-image">
             </div>
-            
             <h1 class="title">Would you be open to hanging out sometime?</h1>
             <p class="made-by">Made by <span id="authorName">Rajat</span> for <span id="targetName">XXXX</span></p>
-            
             <div class="button-container">
                 <button class="btn btn-yes" id="btnYes1">I'd love to! ✨</button>
                 <button class="btn btn-no" id="btnNo">no thanks</button>
@@ -35,12 +33,10 @@
 
         <section class="step" id="step3">
             <h1 class="title">When are you usually free?</h1>
-            
             <div class="input-group">
                 <label>Pick a Day 📅</label>
                 <input type="date" id="datePicker" required>
             </div>
-
             <div class="input-group">
                 <label>Around what time? 🕒</label>
                 <select id="timePicker" required>
@@ -52,50 +48,31 @@
                     <option value="8:00 PM">8:00 PM</option>
                 </select>
             </div>
-
             <button class="btn btn-yes btn-wide" id="btnNext3">Lock it in ♥️</button>
         </section>
 
         <section class="step" id="step4">
             <h1 class="title">What's your usual vibe? 🍽️</h1>
             <p class="subtitle">Just so I know what you like</p>
-            
             <div class="grid">
-                <div class="grid-item">
-                    <span class="emoji">🥘</span>
-                    <span class="label">Biryani</span>
-                </div>
-                <div class="grid-item">
-                    <span class="emoji">☕</span>
-                    <span class="label">Coffee</span>
-                </div>
-                <div class="grid-item">
-                    <span class="emoji">🍕</span>
-                    <span class="label">Pizza</span>
-                </div>
-                <div class="grid-item">
-                    <span class="emoji">🍲</span>
-                    <span class="label">Tikki Chaat</span>
-                </div>
-                <div class="grid-item">
-                    <span class="emoji">🫓</span>
-                    <span class="label">Paratha</span>
-                </div>
-                <div class="grid-item">
-                    <span class="emoji">🍰</span>
-                    <span class="label">Desserts</span>
-                </div>
+                <div class="grid-item" data-food="Biryani"><span class="emoji">🥘</span><span class="label">Biryani</span></div>
+                <div class="grid-item" data-food="Coffee"><span class="emoji">☕</span><span class="label">Coffee</span></div>
+                <div class="grid-item" data-food="Pizza"><span class="emoji">🍕</span><span class="label">Pizza</span></div>
+                <div class="grid-item" data-food="Tikki Chaat"><span class="emoji">🍲</span><span class="label">Tikki Chaat</span></div>
+                <div class="grid-item" data-food="Paratha"><span class="emoji">🫓</span><span class="label">Paratha</span></div>
+                <div class="grid-item" data-food="Desserts"><span class="emoji">🍰</span><span class="label">Desserts</span></div>
             </div>
         </section>
 
         <section class="step" id="step5">
-            <h1 class="title final-text">Awesome. I'll make a plan and text you! 🚗</h1>
-            <p class="ps-text">P.S. Normal people just text, but I thought this would be a bit more fun.</p>
+            <h1 class="title final-text">Awesome. I'll make a plan! 🚗</h1>
+            <p class="ps-text">Click below to send me your answers so I know what you picked!</p>
+            <button class="btn btn-yes btn-wide" id="btnSend">Send answer to <span id="authorNameBtn">Rajat</span> 💌</button>
             <div class="hearts">❤️❤️❤️❤️❤️</div>
         </section>
 
     </main>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
