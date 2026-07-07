@@ -1,10 +1,10 @@
 :root {
     --bg-gradient: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%);
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --card-border: rgba(255, 255, 255, 0.5);
+    --card-bg: rgba(255, 255, 255, 0.88);
+    --card-border: rgba(255, 255, 255, 0.6);
     --primary-pink: #ec4899;
     --primary-hover: #db2777;
-    --text-dark: #4d1c34;
+    --text-dark: #3f172c;
     --text-soft: #704257;
 }
 
@@ -26,7 +26,7 @@ body {
     padding: 20px;
 }
 
-/* --- Ambient Floating Hearts --- */
+/* --- Particle Canvas Layer --- */
 .heart-container {
     position: fixed;
     top: 0;
@@ -40,126 +40,119 @@ body {
 .floating-heart {
     position: absolute;
     bottom: -20px;
-    background-color: rgba(236, 72, 153, 0.4);
+    background-color: rgba(236, 72, 153, 0.35);
     display: inline-block;
-    height: 14px;
-    width: 14px;
+    height: 12px;
+    width: 12px;
     transform: rotate(-45deg);
-    animation: floatUp 7s linear infinite;
+    animation: floatUp 6s linear infinite;
 }
-
 .floating-heart::before, .floating-heart::after {
     content: "";
     background-color: inherit;
     border-radius: 50%;
-    height: 14px;
+    height: 12px;
     position: absolute;
-    width: 14px;
+    width: 12px;
 }
-.floating-heart::before { top: -7px; left: 0; }
-.floating-heart::after { top: 0; left: 7px; }
+.floating-heart::before { top: -6px; left: 0; }
+.floating-heart::after { top: 0; left: 6px; }
 
 @keyframes floatUp {
     0% { transform: translateY(0) rotate(-45deg) scale(0.6); opacity: 0; }
     10% { opacity: 1; }
     90% { opacity: 1; }
-    100% { transform: translateY(-105vh) rotate(-45deg) scale(1); opacity: 0; }
+    100% { transform: translateY(-105vh) rotate(-45deg) scale(1.1); opacity: 0; }
 }
 
-/* --- Base Container Card --- */
+/* --- Container View Card --- */
 .card-container {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: 24px;
     padding: 35px 25px;
     width: 100%;
-    max-width: 420px;
-    min-height: 380px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    max-width: 400px;
+    min-height: 400px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
     z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
-/* --- Dynamic View Navigation States --- */
+/* --- Navigation Flow Handling --- */
 .step-content {
-    display: none;
+    display: none; /* CRITICAL: Keeps unselected sections hidden completely */
     width: 100%;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    opacity: 0;
-    transform: scale(0.98);
-    transition: all 0.4s ease;
 }
 
 .step-content.active {
-    display: flex;
-    opacity: 1;
-    transform: scale(1);
+    display: flex; /* Displays only the active step module */
+    animation: fadeIn 0.4s ease-out forwards;
 }
 
-/* --- Step 1 Components --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Vector SVG Graphic Styles --- */
 .avatar-wrapper {
-    width: 110px;
+    width: 160px;
     height: 110px;
-    border-radius: 20px;
-    overflow: hidden;
     margin-bottom: 20px;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.avatar-img {
+.couple-svg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
-/* --- Typography Framework --- */
+/* --- Typography --- */
 .heading {
     font-family: 'Fredoka', sans-serif;
     font-size: 1.6rem;
     line-height: 1.3;
-    color: var(--text-dark);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .subheading {
     font-size: 0.95rem;
     color: var(--text-soft);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .emoji-header {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 15px;
 }
 
-/* --- Buttons Framework --- */
+/* --- Action Area Buttons --- */
 .btn-group {
     display: flex;
     gap: 15px;
     width: 100%;
     justify-content: center;
-    margin-top: 15px;
-    position: relative;
+    margin-top: 20px;
+    min-height: 50px;
 }
 
 .btn {
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 30px;
+    padding: 12px 24px;
+    border-radius: 50px;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s, transform 0.1s;
 }
 
 .btn-yes {
@@ -170,33 +163,29 @@ body {
 
 .btn-yes:hover {
     background: var(--primary-hover);
-    transform: scale(1.04);
 }
 
 .btn-no {
     background: #e2e8f0;
-    color: #64748b;
+    color: #475569;
     min-width: 90px;
+    z-index: 999; /* Higher priority layer stack to prevent layout locks */
 }
 
 .btn-next {
     background: var(--primary-pink);
-    color: #fff;
+    color: white;
     width: 100%;
-    max-width: 240px;
-    margin-top: 10px;
+    max-width: 220px;
     border-radius: 12px;
+    margin-top: 15px;
 }
 
-.btn-next:hover {
-    background: var(--primary-hover);
-}
-
-/* --- Form Fields (Step 3) --- */
+/* --- Step 3 Form Control Fields --- */
 .form-group {
     width: 100%;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .form-group label {
@@ -219,11 +208,11 @@ body {
     outline: none;
 }
 
-/* --- Grid System (Step 4) --- */
+/* --- Step 4 Vibe Layout Framework --- */
 .vibe-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 12px;
     width: 100%;
     margin-top: 10px;
 }
@@ -232,51 +221,31 @@ body {
     background: #fff;
     border: 2px solid transparent;
     border-radius: 16px;
-    padding: 15px;
+    padding: 12px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+    transition: all 0.2s;
 }
 
 .vibe-card:hover {
+    border-color: var(--primary-pink);
     transform: translateY(-2px);
-    border-color: var(--f472b6);
 }
 
-.vibe-emoji {
-    font-size: 2rem;
-    margin-bottom: 5px;
-}
+.vibe-emoji { font-size: 1.8rem; margin-bottom: 4px; }
+.vibe-title { font-size: 0.85rem; font-weight: 500; }
 
-.vibe-title {
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-/* --- Final Screen (Step 5) --- */
-.final-text {
-    font-size: 1.4rem;
-}
-
+/* --- Step 5 Final Layout --- */
+.final-text { font-size: 1.35rem; line-height: 1.4; }
 .divider {
-    width: 40px;
+    width: 50px;
     height: 3px;
     background: var(--primary-pink);
-    border-radius: 2px;
     margin: 20px 0;
+    border-radius: 10px;
 }
-
-.credit-text {
-    font-size: 0.8rem;
-    color: #924063;
-    font-style: italic;
-    line-height: 1.4;
-}
-
-.heart-row {
-    margin-top: 20px;
-    letter-spacing: 4px;
-}
+.credit-text { font-size: 0.8rem; color: #86198f; font-style: italic; }
+.heart-row { margin-top: 15px; letter-spacing: 3px; }
