@@ -69,7 +69,6 @@ body {
     margin-bottom: 25px;
 }
 
-/* --- New styles for your custom names --- */
 .made-by {
     font-size: 0.8rem;
     color: #9d4b6c;
@@ -84,7 +83,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- New styles for your uploaded image --- */
 .custom-image {
     width: 100%;
     height: auto;
@@ -184,5 +182,5 @@ body {
 .label { font-size: 0.75rem; font-weight: 500; }
 
 .final-text { font-size: 1.4rem; line-height: 1.4; }
-.ps-text { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 20px; }
+.ps-text { font-size: 0.85rem; color: var(--text-muted); margin-top: 20px; }
 .hearts { margin-top: 15px; letter-spacing: 5px; font-size: 1.2rem; }
