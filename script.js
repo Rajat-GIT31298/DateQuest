@@ -1,5 +1,13 @@
+// --- CONFIGURE YOUR NAMES HERE ---
+const YOUR_NAME = "Rajat";
+const HER_NAME = "XXXX"; // Replace XXXX with her actual name!
+
 document.addEventListener("DOMContentLoaded", () => {
     
+    // Inject the names into the HTML
+    document.getElementById('authorName').textContent = YOUR_NAME;
+    document.getElementById('targetName').textContent = HER_NAME;
+
     const btnNo = document.getElementById('btnNo');
     const btnYes1 = document.getElementById('btnYes1');
     const btnNext2 = document.getElementById('btnNext2');
