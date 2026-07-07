@@ -1,1070 +1,317 @@
-/* ==========================================================
-   DateQuest
-   Premium Romantic Glassmorphism Theme
-========================================================== */
-
-:root{
-
-    --primary:#ff4d8d;
-    --secondary:#ff7eb3;
-    --accent:#ffd166;
-    --purple:#8b5cf6;
-
-    --glass:rgba(255,255,255,.18);
-    --glass-border:rgba(255,255,255,.35);
-
-    --text:#ffffff;
-    --text-dark:#2f2f2f;
-
-    --shadow:
-        0 20px 60px rgba(0,0,0,.25);
-
-    --radius:28px;
-
-    --transition:.35s ease;
+/* --- Core System Resets & Vars --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #b5e2fa 100%);
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 20px 40px rgba(255, 71, 87, 0.15);
+    --primary-color: #ff4757;
+    --primary-hover: #ff6b81;
+    --text-dark: #2f3542;
+    --text-muted: #57606f;
 }
 
-/* ==========================================================
-   Reset
-========================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    color:var(--text);
-
-    min-height:100vh;
-
-    overflow:hidden;
-
-    background:#ff6b9a;
-
-    position:relative;
-
-}
-
-/* ==========================================================
-   Animated Gradient Background
-========================================================== */
-
-.gradient-bg{
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-        135deg,
-        #ff6b9a,
-        #ff8fb8,
-        #b388ff,
-        #6dd5fa
-    );
-
-    background-size:400% 400%;
-
-    animation:gradientMove 18s linear infinite;
-
-    z-index:-5;
-
-}
-
-@keyframes gradientMove{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-
-}
-
-/* ==========================================================
-   Blurred Floating Circles
-========================================================== */
-
-.blur-circle{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    filter:blur(70px);
-
-    opacity:.45;
-
-    animation:floatCircle 10s ease-in-out infinite;
-
-}
-
-.circle1{
-
-    width:320px;
-    height:320px;
-
-    background:#ffb3d9;
-
-    top:-80px;
-    left:-80px;
-
-}
-
-.circle2{
-
-    width:260px;
-    height:260px;
-
-    background:#a78bfa;
-
-    bottom:-60px;
-    right:-60px;
-
-    animation-delay:3s;
-
-}
-
-.circle3{
-
-    width:220px;
-    height:220px;
-
-    background:#7dd3fc;
-
-    top:45%;
-    left:55%;
-
-    animation-delay:6s;
-
-}
-
-@keyframes floatCircle{
-
-    0%{
-
-        transform:
-        translateY(0)
-        scale(1);
-
-    }
-
-    50%{
-
-        transform:
-        translateY(-25px)
-        scale(1.08);
-
-    }
-
-    100%{
-
-        transform:
-        translateY(0)
-        scale(1);
-
-    }
-
-}
-
-/* ==========================================================
-   Main Container
-========================================================== */
-
-.container{
-
-    width:100%;
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:30px;
-
-}
-
-/* ==========================================================
-   Glass Card
-========================================================== */
-
-.glass-card{
-
-    width:100%;
-
-    max-width:760px;
-
-    background:var(--glass);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    border:1px solid var(--glass-border);
-
-    border-radius:var(--radius);
-
-    padding:45px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-/* Light Shine */
-
-.glass-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180%;
-
-    background:
-    linear-gradient(
-        to right,
-        transparent,
-        rgba(255,255,255,.20),
-        transparent
-    );
-
-    transform:rotate(25deg);
-
-    left:-240px;
-    top:-20%;
-
-    animation:shine 6s linear infinite;
-
-}
-
-@keyframes shine{
-
-    from{
-
-        left:-250px;
-
-    }
-
-    to{
-
-        left:120%;
-
-    }
-
-}
-
-/* ==========================================================
-   Logo
-========================================================== */
-
-.logo{
-
-    font-family:'Pacifico',cursive;
-
-    font-size:2rem;
-
-    color:#fff;
-
-    margin-bottom:20px;
-
-    text-shadow:
-    0 5px 15px rgba(0,0,0,.25);
-
-}
-
-/* ==========================================================
-   Cartoon Couple
-========================================================== */
-
-.couple-wrapper{
-
-    margin:15px 0 25px;
-
-}
-
-.couple{
-
-    width:250px;
-
-    max-width:80%;
-
-    animation:bounce 4s ease-in-out infinite;
-
-    user-select:none;
-
-    pointer-events:none;
-
-}
-
-@keyframes bounce{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
-}
-
-/* ==========================================================
-   Headings
-========================================================== */
-
-.title{
-
-    font-size:2.2rem;
-
-    font-weight:700;
-
-    line-height:1.35;
-
-    margin-bottom:15px;
-
-}
-
-.subtitle{
-
-    font-size:1.05rem;
-
-    line-height:1.8;
-
-    opacity:.95;
-
-    margin-bottom:35px;
-
-}
-
-/* ==========================================================
-   Proposal Section
-========================================================== */
-
-.proposal-section {
-    margin-top: 15px;
-}
-
-.question {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-    text-shadow: 0 4px 12px rgba(0,0,0,.25);
-}
-
-.question-subtitle {
-    font-size: 1rem;
-    opacity: .9;
-    margin-bottom: 35px;
-}
-
-/* ==========================================================
-   Buttons
-========================================================== */
-
-.button-area {
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
+    overflow: hidden;
+    color: var(--text-dark);
+    padding: 20px;
+}
+
+/* --- Floating Hearts Particle Layer --- */
+.heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    background-color: var(--primary-color);
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    transform: rotate(-45deg);
+    opacity: 0.6;
+    animation: floatUp 8s linear infinite;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+    content: "";
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+}
+
+.floating-heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.floating-heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(-45deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(-45deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* --- Premium Glassmorphism Card Wrapper --- */
+.quest-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    min-height: 520px;
+    box-shadow: var(--glass-shadow);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
-    min-height: 90px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quest-card:hover {
+    transform: translateY(-4px);
+}
+
+/* --- Modular Screens Switching System --- */
+.screen {
+    display: none;
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Typography / Context Styles --- */
+.badge {
+    display: inline-block;
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #1e272e;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    padding: 0 10px;
+}
+
+/* --- SVG Graphics Framework --- */
+.graphic-container {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 24px;
+}
+
+.couple-svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.06));
+}
+
+/* --- Action Zone Buttons Interactive Properties --- */
+.action-zone {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    min-height: 60px;
+    margin-top: auto;
 }
 
 .btn {
-
-    border: none;
-    outline: none;
-    cursor: pointer;
-
-    padding: 16px 42px;
-
-    border-radius: 999px;
-
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-
-    transition: all .30s ease;
-
-    user-select: none;
-
-    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    padding: 14px 28px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* YES Button */
-
 .btn-yes {
-
-    background: linear-gradient(135deg,#ff4d8d,#ff7eb3);
-
+    background: var(--primary-color);
     color: white;
-
+    flex: 1.4;
+    z-index: 2;
 }
 
 .btn-yes:hover {
-
-    transform: translateY(-5px) scale(1.06);
-
-    box-shadow:
-        0 18px 40px rgba(255,77,141,.45);
-
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
 }
-
-.btn-yes:active {
-
-    transform: scale(.96);
-
-}
-
-/* NO Button */
 
 .btn-no {
-
-    background: white;
-
-    color: #ff4d8d;
-
-    position: absolute;
-
-    left: 55%;
-
-    top: 0;
-
+    background: #ffffff;
+    color: var(--text-dark);
+    flex: 1;
+    position: relative;
+    z-index: 5;
+    white-space: nowrap;
 }
 
-.btn-no:hover {
-
-    background: #ffe7f0;
-
+/* --- Success State Details Module --- */
+.success-graphic {
+    font-size: 4.5rem;
+    margin-bottom: 16px;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* ==========================================================
-   Message Box
-========================================================== */
+.details-box {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
 
-.message-box {
+.details-box p {
+    margin-bottom: 6px;
+}
+.details-box p:last-child {
+    margin-bottom: 0;
+}
 
-    margin-top: 35px;
-
-    padding: 16px;
-
-    min-height: 70px;
-
-    border-radius: 18px;
-
-    background: rgba(255,255,255,.18);
-
-    border: 1px solid rgba(255,255,255,.28);
-
-    font-size: 1rem;
-
+/* --- Floating Utilities Controls --- */
+.music-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    transition: .3s;
-
-}
-
-/* ==========================================================
-   Music Button
-========================================================== */
-
-.music-btn {
-
-    position: fixed;
-
-    right: 25px;
-
-    top: 25px;
-
-    width: 58px;
-    height: 58px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: rgba(255,255,255,.22);
-
-    backdrop-filter: blur(18px);
-
-    color: white;
-
-    font-size: 1.2rem;
-
     cursor: pointer;
-
-    z-index: 1000;
-
-    transition: .3s;
-
-    box-shadow: 0 12px 25px rgba(0,0,0,.20);
-
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
 }
 
-.music-btn:hover {
-
+.music-toggle:hover {
     transform: scale(1.1);
-
 }
 
-.music-btn.active {
-
-    background: #ff4d8d;
-
-}
-
-/* ==========================================================
-   Floating Hearts
-========================================================== */
-
-.floating-hearts {
-
-    position: fixed;
-
-    inset: 0;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-    z-index: -1;
-
-}
-
-.floating-hearts span {
-
-    position: absolute;
-
-    bottom: -50px;
-
-    font-size: 26px;
-
-    animation: heartFloat 14s linear infinite;
-
-    opacity: .85;
-
-}
-
-.floating-hearts span:nth-child(1){left:5%;animation-delay:0s;}
-.floating-hearts span:nth-child(2){left:15%;animation-delay:2s;}
-.floating-hearts span:nth-child(3){left:28%;animation-delay:5s;}
-.floating-hearts span:nth-child(4){left:40%;animation-delay:8s;}
-.floating-hearts span:nth-child(5){left:52%;animation-delay:3s;}
-.floating-hearts span:nth-child(6){left:66%;animation-delay:6s;}
-.floating-hearts span:nth-child(7){left:76%;animation-delay:1s;}
-.floating-hearts span:nth-child(8){left:86%;animation-delay:4s;}
-.floating-hearts span:nth-child(9){left:92%;animation-delay:9s;}
-.floating-hearts span:nth-child(10){left:10%;animation-delay:11s;}
-.floating-hearts span:nth-child(11){left:60%;animation-delay:13s;}
-.floating-hearts span:nth-child(12){left:35%;animation-delay:15s;}
-
-@keyframes heartFloat {
-
-    0%{
-
-        transform:translateY(0) rotate(0deg);
-
-        opacity:0;
-
-    }
-
-    15%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:translateY(-120vh) rotate(360deg);
-
-        opacity:0;
-
-    }
-
-}
-
-/* ==========================================================
-   Mini Hearts
-========================================================== */
-
-.mini-hearts{
-
-    margin-top:25px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:14px;
-
-    font-size:1.5rem;
-
-}
-
-.mini-hearts span{
-
-    animation:pulseHeart 2s infinite;
-
-}
-
-.mini-hearts span:nth-child(2){animation-delay:.3s;}
-.mini-hearts span:nth-child(3){animation-delay:.6s;}
-.mini-hearts span:nth-child(4){animation-delay:.9s;}
-.mini-hearts span:nth-child(5){animation-delay:1.2s;}
-
-@keyframes pulseHeart{
-
-    0%,100%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.35);
-
-    }
-
-}
-
-/* ==========================================================
-   Success Screen
-========================================================== */
-
-.success-screen{
-
-    position:fixed;
-
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.45);
-
-    backdrop-filter:blur(10px);
-
-    z-index:2000;
-
-}
-
-.success-card{
-
-    width:min(92%,520px);
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.35);
-
-    border-radius:28px;
-
-    padding:40px;
-
-    text-align:center;
-
-    color:#fff;
-
-    animation:popup .45s ease;
-
-}
-
-.success-heart{
-
-    font-size:70px;
-
-    animation:heartbeat 1s infinite;
-
-}
-
-.btn-celebrate{
-
-    margin-top:30px;
-
-    background:linear-gradient(135deg,#ff4d8d,#ff7eb3);
-
-    color:#fff;
-
-}
-
-@keyframes popup{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.75);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes heartbeat{
-
-    0%,100%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.2);
-
-    }
-
-}
-
-/* ==========================================================
-   Footer
-========================================================== */
-
-.footer {
-    width: 100%;
-    text-align: center;
-    padding: 25px 15px;
-    color: rgba(255,255,255,.9);
-    font-size: .95rem;
-}
-
-.footer .heart {
-    display: inline-block;
-    animation: heartbeat 1.2s infinite;
-}
-
-.footer-small {
-    margin-top: 8px;
-    font-size: .82rem;
-    opacity: .8;
-}
-
-/* ==========================================================
-   Confetti Canvas
-========================================================== */
-
-#confettiCanvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* ==========================================================
-   Sparkles
-========================================================== */
-
-#sparkles {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 999;
-}
-
-.sparkle {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-    animation: sparkle 1.6s linear forwards;
-}
-
-@keyframes sparkle {
-
-    0% {
-        transform: scale(0);
-        opacity: 1;
-    }
-
-    60% {
-        transform: scale(1.8);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-}
-
-/* ==========================================================
-   Floating Celebration Emojis
-========================================================== */
-
-#emojiContainer {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1500;
-}
-
-.emoji {
-    position: absolute;
-    bottom: -40px;
-    font-size: 32px;
-    animation: emojiRise 5s linear forwards;
-}
-
-@keyframes emojiRise {
-
-    from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(-120vh) rotate(720deg);
-        opacity: 0;
-    }
-
-}
-
-/* ==========================================================
-   Scrollbar
-========================================================== */
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255,255,255,.15);
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,.45);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,.7);
-}
-
-/* ==========================================================
-   Selection
-========================================================== */
-
-::selection {
-    background: #ff4d8d;
+.music-toggle.playing {
+    background: var(--primary-color);
     color: #fff;
+    border-color: transparent;
+    animation: pulseGlow 2s infinite;
 }
 
-/* ==========================================================
-   Utility Classes
-========================================================== */
-
-.hidden {
-    display: none !important;
+.music-icon {
+    width: 22px;
+    height: 22px;
 }
 
-.fade-in {
-    animation: fadeIn .5s ease;
+/* --- Global Clean Animations --- */
+@keyframes popIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
 }
 
-.fade-out {
-    animation: fadeOut .5s ease;
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(255, 71, 87, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
 }
 
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-@keyframes fadeOut {
-
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-
-}
-
-/* ==========================================================
-   Responsive Design
-========================================================== */
-
-@media (max-width: 992px) {
-
-    .glass-card {
-        padding: 35px;
-    }
-
-    .title {
-        font-size: 1.9rem;
-    }
-
-    .question {
-        font-size: 1.7rem;
-    }
-
-    .couple {
-        width: 220px;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    body {
-        overflow-y: auto;
-    }
-
-    .container {
-        padding: 18px;
-    }
-
-    .glass-card {
-        padding: 28px 22px;
-        border-radius: 22px;
-    }
-
-    .logo {
-        font-size: 1.7rem;
-    }
-
-    .title {
-        font-size: 1.6rem;
-    }
-
-    .subtitle {
-        font-size: .95rem;
-    }
-
-    .question {
-        font-size: 1.45rem;
-    }
-
-    .question-subtitle {
-        font-size: .92rem;
-    }
-
-    .button-area {
-        flex-direction: column;
-        gap: 18px;
-        min-height: 150px;
-    }
-
-    .btn {
-        width: 220px;
-        padding: 15px 20px;
-    }
-
-    .btn-no {
-        position: relative;
-        left: auto;
-        top: auto;
-    }
-
-    .music-btn {
-        width: 50px;
-        height: 50px;
-        top: 15px;
-        right: 15px;
-    }
-
-}
-
+/* --- Structural Mobile Breakpoints --- */
 @media (max-width: 480px) {
-
-    .glass-card {
-        padding: 22px 18px;
+    body {
+        padding: 16px;
     }
-
-    .couple {
-        width: 180px;
+    .quest-card {
+        padding: 32px 20px;
+        min-height: 480px;
     }
-
     .title {
-        font-size: 1.35rem;
+        font-size: 1.8rem;
     }
-
-    .question {
-        font-size: 1.2rem;
-    }
-
     .btn {
-        width: 100%;
-        font-size: .95rem;
+        padding: 12px 20px;
+        font-size: 0.95rem;
     }
-
-    .success-card {
-        padding: 28px 20px;
-    }
-
-    .success-heart {
-        font-size: 55px;
-    }
-
 }
-
-/* ==========================================================
-   End of File
-========================================================== */
